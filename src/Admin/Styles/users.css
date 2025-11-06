@@ -1,0 +1,43 @@
+/* --- Users Tab --- */
+section .users-page{} /* opcional si envuelves con un div.users-page */
+
+.users-toolbar .primary{box-shadow:0 6px 14px rgba(15,47,87,.18)}
+.toolbar input, .toolbar select{
+  min-width: 180px;
+  background:#fbfdff;
+}
+.toolbar input:focus, .toolbar select:focus{
+  border-color:#0f2f57; outline: none; box-shadow:0 0 0 3px rgba(15,47,87,.12);
+}
+
+/* tabla */
+.table tr:hover td{background:#fbfcff}
+.table td select{
+  border:1px solid #d0dae4; border-radius:6px; padding:6px 8px; background:#fff;
+}
+.row-actions button{
+  border-radius:6px; padding:6px 10px;
+}
+.row-actions button:nth-child(1){ /* Editar */
+  background:#f6f9fc;
+}
+.row-actions button:nth-child(2){ /* Reset */
+  background:#fff7ed; border-color:#ffb380;
+}
+.row-actions button:nth-child(3){ /* Activar/Desactivar */
+  background:#fef2f2; border-color:#f2b8b5;
+}
+.badge.ok{background:#e8fff3;color:#067647}
+.badge.ko{background:#fff1f1;color:#b42318}
+
+/* modal */
+.modal-card{
+  border:1px solid #e6ecf2;
+  box-shadow:0 24px 60px rgba(2,8,23,.18);
+}
+.modal-card .grid2 input,
+.modal-card .grid2 select{
+  border:1px solid #d0dae4; border-radius:8px; padding:10px 12px;
+}
+.modal-card small{opacity:.7}
+.modal-actions .primary{box-shadow:0 6px 14px rgba(15,47,87,.18)}

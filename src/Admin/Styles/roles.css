@@ -1,0 +1,30 @@
+/* --- Roles Tab --- */
+.roles .toolbar{
+  background:linear-gradient(180deg,#f8fafc,transparent);
+  border-radius:10px; padding-block:10px;
+}
+.roles .toolbar strong{margin-right:8px}
+
+.role-matrix .table{
+  table-layout: fixed;
+}
+.role-matrix .table th:first-child,
+.role-matrix .table td:first-child{
+  position: sticky; left: 0; background:#fff; z-index:1;
+}
+.role-matrix .table th{font-size:13px; white-space:nowrap}
+.role-matrix .table td{ text-align:center }
+
+.role-matrix input[type="checkbox"]{
+  width:16px; height:16px; accent-color:#0f2f57;
+}
+
+/* filas cebreadas y hover */
+.role-matrix tbody tr:nth-child(even) td{background:#fbfdff}
+.role-matrix tbody tr:hover td{background:#f6fbff}
+
+/* chips informativos (si los usas en algún texto) */
+.roles .chip{
+  display:inline-block; padding:2px 8px; border-radius:999px;
+  background:#eef2ff; color:#273ea0; font-size:12px;
+}

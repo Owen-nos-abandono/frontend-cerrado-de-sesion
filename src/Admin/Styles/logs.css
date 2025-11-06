@@ -1,0 +1,25 @@
+/* --- Logs Tab --- */
+.logs .toolbar input[type="date"]{
+  min-width: auto; width: 150px;
+}
+.logs .toolbar{
+  background:#f8fafc; border-radius:10px; padding:8px;
+}
+.logs .table th{font-size:13px}
+.logs .table td{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
+
+/* hover + separadores suaves */
+.logs .table tr:hover td{background:#fbfcff}
+
+/* badge genérica para eventos (si agregas un span) */
+.event-badge{
+  display:inline-block; padding:2px 8px; border-radius:999px; font-size:12px;
+  background:#eef2ff; color:#1e3a8a;
+}
+
+/* Colores por tipo de evento (si pones className dinámica: event-LOGIN_SUCCESS, etc.) */
+.event-LOGIN_SUCCESS{ background:#e7f8ef; color:#0a6b3b }
+.event-LOGIN_FAILURE{ background:#fdecec; color:#b42318 }
+.event-RESET_PASSWORD{ background:#fff7ed; color:#b45309 }
+.event-ASSIGN_ROLE{ background:#eef6ff; color:#1d4ed8 }
+.event-ACTIVATE, .event-DEACTIVATE{ background:#f2f4f7; color:#344054 }

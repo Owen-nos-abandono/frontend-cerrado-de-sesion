@@ -1,0 +1,256 @@
+/* ====== ESTILOS BASE PARA AdminModule ====== */
+
+/* Contenedor principal */
+.admin-shell {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #0f172a;
+}
+
+/* --- Header del módulo --- */
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.admin-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+  color: #0f2f57;
+}
+
+/* --- Navegación de pestañas --- */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tabs button {
+  border: 1px solid #d0dae4;
+  background: #f6f9fc;
+  color: #0f172a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.tabs button:hover {
+  background: #e7eef7;
+}
+
+.tabs button.active {
+  background: #0f2f57;
+  color: #ffffff;
+  border-color: #0f2f57;
+  box-shadow: 0 4px 12px rgba(15, 47, 87, 0.25);
+}
+
+/* --- Contenedor principal de cada pestaña --- */
+.admin-main {
+  background: #ffffff;
+  border: 1px solid #e6ecf2;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  min-height: 500px;
+  transition: all 0.2s ease;
+}
+
+/* --- Botones generales --- */
+button {
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #d0dae4;
+  padding: 8px 14px;
+  cursor: pointer;
+  background: #ffffff;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover {
+  background: #f8fafc;
+}
+
+button.primary {
+  background: #0f2f57;
+  color: #fff;
+  border-color: #0f2f57;
+}
+
+button.primary:hover {
+  background: #123b6b;
+}
+
+/* --- Toolbar general (búsqueda, filtros, acciones) --- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.toolbar input,
+.toolbar select {
+  border: 1px solid #d0dae4;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.toolbar input:focus,
+.toolbar select:focus {
+  outline: none;
+  border-color: #0f2f57;
+  box-shadow: 0 0 0 3px rgba(15, 47, 87, 0.15);
+}
+
+.toolbar .spacer {
+  flex: 1;
+}
+
+/* --- Tablas base --- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  border-bottom: 1px solid #eef2f7;
+  padding: 10px 8px;
+  text-align: left;
+}
+
+.table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.table tr:hover td {
+  background: #f9fbfd;
+}
+
+/* --- Toast (mensajes temporales) --- */
+.toast {
+  display: inline-block;
+  background: #0f2f57;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(15, 47, 87, 0.25);
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Modal base (común a varias pestañas) --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px;
+  width: 90%;
+  max-width: 600px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-card h3 {
+  margin: 0 0 12px;
+  color: #0f2f57;
+  font-size: 18px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* --- Utilidades de diseño --- */
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #0f172a;
+  gap: 6px;
+}
+
+label input,
+label select {
+  border: 1px solid #d0dae4;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+/* --- Badges reutilizables --- */
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.badge.ok {
+  background: #e6f8ef;
+  color: #147a3d;
+}
+
+.badge.ko {
+  background: #fdecec;
+  color: #b42318;
+}
+
+/* --- Adaptabilidad --- */
+@media (max-width: 768px) {
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .tabs button {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .admin-main {
+    padding: 16px;
+  }
+}
