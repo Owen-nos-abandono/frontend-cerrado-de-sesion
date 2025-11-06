@@ -1,0 +1,6 @@
+.sessions .toolbar input,.sessions .toolbar select{
+  border:1px solid #cfe7ea;border-radius:8px;padding:8px 10px
+}
+.sessions .row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.sessions .row-actions button:first-child{background:#eef7ff;border-color:#b6d4fe}
+.sessions .row-actions button:last-child{background:#fff1f1;border-color:#f2b8b5}
