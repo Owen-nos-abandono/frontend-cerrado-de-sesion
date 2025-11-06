@@ -1,9 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
+import { agendarAsesoria } from "../api/asesoriasApi";
 import "./Styles/schedule.css";
 
 const genId = () => crypto.randomUUID?.() ?? String(Math.random());
 
-// genera slots cada hora 09:00–18:00
 function daySlots(dateStr) {
   const out = [];
   for (let h = 9; h <= 18; h++) {
@@ -24,41 +24,38 @@ export default function ScheduleTab({ sessions, setSessions }) {
   const available = useMemo(() => {
     if (!date) return [];
     const chosenDay = daySlots(date);
-    // quita slots pasados y slots ocupados por el alumno en ese día
     const taken = new Set(
       sessions
-        .filter(s => s.datetime.startsWith(date))
-        .map(s => new Date(s.datetime).toISOString())
+        .filter(s => s.fecha === date)
+        .map(s => `${s.fecha}T${s.hora}`)
     );
     const now = new Date();
-    return chosenDay
-      .filter(d => d > now) // no permitir pasado
-      .filter(d => !taken.has(d.toISOString()));
+    return chosenDay.filter(d => d > now && !taken.has(d.toISOString()));
   }, [date, sessions]);
 
-  function save() {
+  async function save() {
     setMsg("");
     if (!date || !time) {
       return setMsg("Selecciona fecha y hora disponibles.");
     }
-    const dtIso = new Date(`${date}T${time}:00`).toISOString();
-
-    // choque por seguridad
-    if (sessions.some(s => s.datetime === dtIso)) {
-      return setMsg("Ese horario ya está ocupado. Elige otro.");
-    }
 
     const payload = {
-      id: genId(),
-      datetime: dtIso,
-      topic: topic.trim(),
-      teacher: teacher.trim() || "Por asignar",
-      status: "scheduled",
+      fecha: date,
+      hora: time,
+      tema: topic.trim(),
+      docente: teacher.trim() || "Por asignar"
     };
-    setSessions(arr => [payload, ...arr]);
-    setMsg("¡Asesoría agendada!");
-    setDate(""); setTime(""); setTopic(""); setTeacher("");
-    setTimeout(() => setMsg(""), 2000);
+
+    try {
+      const nueva = await agendarAsesoria(payload);
+      setSessions(arr => [nueva, ...arr]);
+      setMsg("¡Asesoría agendada!");
+      setDate(""); setTime(""); setTopic(""); setTeacher("");
+      setTimeout(() => setMsg(""), 2000);
+    } catch (err) {
+      console.error(err);
+      setMsg("Error al agendar asesoría");
+    }
   }
 
   return (
@@ -79,7 +76,6 @@ export default function ScheduleTab({ sessions, setSessions }) {
                 return <option key={hh} value={hh}>{hh}</option>;
               })}
             </select>
-            <small className="muted">* Se muestran solo horarios libres y futuros.</small>
           </label>
 
           <label>Tema (opcional)

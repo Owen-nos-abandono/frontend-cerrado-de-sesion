@@ -6,24 +6,18 @@ import ScheduleTab from "./schedule";
 import SessionsTab from "./sessions";
 import SettingsTab from "./settings";
 
-export default function StudentModule({ onLogout }) {
+import { listarAsesorias } from "../api/asesoriasApi";
+
+function StudentModule({ onLogout }) {
   const [tab, setTab] = useState("dashboard");
+  const [sessions, setSessions] = useState([]);
 
-  // estado compartido mínimo: sesiones en localStorage
-  const [sessions, setSessions] = useState(() => {
-    try {
-      const raw = localStorage.getItem("studentSessions");
-      return raw ? JSON.parse(raw) : [];
-    } catch {
-      return [];
-    }
-  });
-
+  // 🔹 Cargar asesorías reales desde backend
   useEffect(() => {
-    try {
-      localStorage.setItem("studentSessions", JSON.stringify(sessions));
-    } catch {}
-  }, [sessions]);
+    listarAsesorias()
+      .then(data => setSessions(data))
+      .catch(err => console.error("Error al cargar asesorías:", err));
+  }, []);
 
   return (
     <div className="student-shell">
@@ -46,3 +40,5 @@ export default function StudentModule({ onLogout }) {
     </div>
   );
 }
+
+export default StudentModule;
