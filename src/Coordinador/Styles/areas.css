@@ -1,0 +1,8 @@
+.coord-areas .areas-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:12px
+}
+.coord-areas .area-item{
+  display:flex;align-items:center;gap:8px;border:1px solid #e6ecf2;border-radius:10px;padding:8px 10px;background:#fff
+}
+.coord-areas .area-item.on{background:#eef8fb;border-color:#bfe5ee}
+.coord-areas input[type="checkbox"]{width:16px;height:16px;accent-color:#0e4c5a}

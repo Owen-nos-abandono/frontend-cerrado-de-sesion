@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Login from "./Login";
-import AdminModule from "./Admin/index";       // pestañas de Administrador
-import StudentModule from "./Alumno/index";   // pestañas de Alumno (EPIC02)
+import AdminModule from "./Admin/index";        // pestañas de Administrador
+import StudentModule from "./Alumno/index";     // pestañas de Alumno (EPIC02)
+import TeacherModule from "./Docentes/index";   // pestañas de Docente (EPIC03)
+import CoordinatorModule from "./Coordinador/index"; // pestañas de Coordinador (EPIC04)
+// Si usaste las carpetas en inglés, ajusta los nombres de importación según corresponda
 
 function Main({ user, onLogout }) {
   // Vista por rol
@@ -16,10 +19,11 @@ function Main({ user, onLogout }) {
     content = <AdminModule />; // Users / Roles / Logs / Settings
   } else if (user.role === "Usuario" || user.role === "Alumno") {
     content = <StudentModule onLogout={onLogout} />; // Dashboard / Agendar / Mis asesorías / Ajustes
+  } else if (user.role === "Docente") {
+    content = <TeacherModule onLogout={onLogout} />; // Estudiantes / Asignar / Mis asesorías / Historial / Ajustes
+  } else if (user.role === "Coordinador") {
+    content = <CoordinatorModule />; // Profesores / Áreas / Reportes
   }
-  // Si quieres agregar más adelante:
-  // else if (user.role === "Docente") { content = <TeacherModule /> }
-  // else if (user.role === "Coordinador") { content = <CoordinatorModule /> }
 
   return (
     <div style={{ padding: 20 }}>

@@ -1,0 +1,35 @@
+.coord-shell{max-width:1100px;margin:32px auto;padding:0 16px;font-family:Segoe UI,Roboto,Arial,sans-serif;color:#0f172a}
+.coord-header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;border-bottom:2px solid #e2e8f0;padding-bottom:10px}
+.coord-header h1{margin:0;font-size:22px;color:#0e4c5a}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{border:1px solid #d0dae4;background:#eef8fb;color:#0f172a;padding:8px 16px;border-radius:10px;cursor:pointer;transition:.2s}
+.tabs button:hover{background:#dff3f7}
+.tabs button.active{background:#0e4c5a;color:#fff;border-color:#0e4c5a;box-shadow:0 4px 12px rgba(14,76,90,.25)}
+
+.coord-main{background:#fff;border:1px solid #e6ecf2;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.06);min-height:480px}
+
+.card{background:#fff;border:1px solid #e6ecf2;border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 8px 22px rgba(2,8,23,.04)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px}
+.badge.ok{background:#e7f8ef;color:#147a3d}
+.badge.ko{background:#fdecec;color:#b42318}
+.badge.neutral{background:#f2f4f7;color:#344054}
+.muted{color:#64748b}
+.hint{font-size:12px;color:#64748b;margin-top:8px}
+.toast{background:#0e4c5a;color:#fff;padding:8px 12px;border-radius:8px;display:inline-block;margin-top:10px}
+.actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+button{border:1px solid #d0dae4;background:#fff;border-radius:8px;padding:8px 12px;cursor:pointer}
+button.primary{background:#0e4c5a;color:#fff;border-color:#0e4c5a}
+
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border-bottom:1px solid #eef2f7;padding:10px 8px}
+.table th{background:#f8fafc;text-align:left}
+
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{background:#eef6ff;color:#1e3a8a;border-radius:999px;padding:2px 8px;font-size:12px}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+
+.toolbar{display:flex;gap:8px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.toolbar input,.toolbar select{border:1px solid #d0dae4;border-radius:8px;padding:8px 10px}
+.toolbar .spacer{flex:1}
