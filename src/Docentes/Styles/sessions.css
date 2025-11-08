@@ -1,0 +1,6 @@
+.teacher-sessions .toolbar input,.teacher-sessions .toolbar select{
+  border:1px solid #d0dae4;border-radius:8px;padding:8px 10px
+}
+.teacher-sessions .row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.teacher-sessions .row-actions button:first-child{background:#eef7ff;border-color:#b6d4fe}
+.teacher-sessions .row-actions button:last-child{background:#fff1f1;border-color:#f2b8b5}
